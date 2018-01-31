@@ -19,7 +19,7 @@ vgc --help
 ```bash
 vgc Footer
 ```
-Will generate three files:
+Will generate a folder called `Footer` in *your current directory* with three files :
 
 
 **index.js**
