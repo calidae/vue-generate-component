@@ -1,5 +1,5 @@
 {
-  "name": "vue-generate-component",
+  "name": "@calidae/vue-generate-component",
   "version": "1.2.4",
   "description": "Vue js component generator",
   "main": "lib/vgc.js",
@@ -18,14 +18,14 @@
     "vue js cli",
     "vue js generator"
   ],
-  "author": "Netanel Basal <netanel7799@gmail.com>",
-  "license": "ISC",
+  "author": "Calidae <dev@calidae.com>",
+  "license": "MIT",
   "bin": {
     "vgc": "dist/vgc.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NetanelBasal/vue-generate-component"
+    "url": "git+https://github.com/calidae/vue-generate-component.git"
   },
   "dependencies": {
     "babel-cli": "^6.3.17",
@@ -40,5 +40,11 @@
   },
   "devDependencies": {
     "run-sequence": "^1.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/calidae/vue-generate-component/issues"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }

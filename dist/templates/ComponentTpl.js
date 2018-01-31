@@ -13,13 +13,14 @@ var ComponentTpl =
 /**
  *
  * @param name - the component name
+ * @param container - has the container option
  */
-function ComponentTpl(name) {
+function ComponentTpl(name, container) {
   _classCallCheck(this, ComponentTpl);
 
   this.type = 'component';
-  this.isDir = true;
   this.name = name;
+  this.container = container;
 };
 
 exports.default = ComponentTpl;

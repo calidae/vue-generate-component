@@ -55,15 +55,11 @@ var TemplateGenerator = function () {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var name = options.name,
           type = options.type,
-          actions = options.actions;
+          actions = options.actions,
+          container = options.container;
 
       var filesType = _config2.default.getConfigFile().filesType;
-      if (options.isDir) {
-        this._createDirectory(this._getDirPath(type), { name: name, actions: actions, filesType: filesType }, filesType);
-      } else {
-        var tpl = this._compileTpl(this._getSingleTpl(type), { name: name, actions: actions, filesType: filesType });
-        this._createFile(name, type, filesType.js, tpl);
-      }
+      this._createDirectory(this._getDirPath(type), { name: name, actions: actions, filesType: filesType, container: container }, filesType);
     }
 
     /**
@@ -79,10 +75,11 @@ var TemplateGenerator = function () {
     value: function _compileTpl(file, _ref) {
       var name = _ref.name,
           actions = _ref.actions,
-          filesType = _ref.filesType;
+          filesType = _ref.filesType,
+          container = _ref.container;
 
       var compiled = _swig2.default.compileFile(file);
-      return compiled({ name: name, actions: actions, filesType: filesType });
+      return compiled({ name: name, actions: actions, filesType: filesType, container: container });
     }
 
     /**
@@ -112,7 +109,7 @@ var TemplateGenerator = function () {
 
   }, {
     key: '_createDirectory',
-    value: function _createDirectory(dirPath, data, fileTypes) {
+    value: function _createDirectory(dirPath, data, fileTypes, container) {
       var _this = this;
 
       _fsExtra2.default.readdir(dirPath, function (err, dir) {
@@ -120,8 +117,17 @@ var TemplateGenerator = function () {
         var folder = _path2.default.join(process.cwd(), name);
         var filePath = void 0;
 
+        // If container option is not provided we must not create the Container
+        // component, thus we remove it from the blueprints array.
+        if (!data.container) {
+          dir = dir.filter(function (d) {
+            return !d.includes("Container");
+          });
+        }
+
         dir.forEach(function (tempFile) {
           var compiled = _this._compileTpl(dirPath + '/' + tempFile, data);
+
           var fileName = _this._createFileName(tempFile, name, fileTypes);
 
           filePath = _path2.default.join(folder, fileName);
@@ -161,25 +167,6 @@ var TemplateGenerator = function () {
     /**
      *
      * @param type
-     * @param extension
-     * @returns {*}
-     * @private
-     */
-
-  }, {
-    key: '_getSingleTpl',
-    value: function _getSingleTpl(type) {
-      var extension = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'js';
-
-      if (type === 'single') {
-        return this.TEMPLATES_DIR + '/' + type + '/temp.vue';
-      }
-      return this.TEMPLATES_DIR + '/' + type + '/temp.' + type + '.' + extension;
-    }
-
-    /**
-     *
-     * @param type
      * @returns {*}
      * @private
      */
@@ -202,9 +189,6 @@ var TemplateGenerator = function () {
   }, {
     key: '_createFilePath',
     value: function _createFilePath(name, type, fileType) {
-      if (type === 'single') {
-        return _path2.default.join(process.cwd(), name + '.vue');
-      }
       return _path2.default.join(process.cwd(), name + '.' + type + '.' + fileType);
     }
   }]);

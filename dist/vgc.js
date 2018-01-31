@@ -47,14 +47,8 @@ if (options.help) {
   console.log(cli.getUsage(cli));
 }
 
-/* ===============
- Set the file extensions
- =============== */
-if (options.html || options.style) {
-  var configData = _config2.default.getConfigFile();
-  configData.filesType.html = options.html ? options.html : configData.filesType.html;
-  configData.filesType.style = options.style ? options.style : configData.filesType.style;
-  _config2.default.updateConfigFile(configData);
-}
+var configData = _config2.default.getConfigFile();
+configData.structure.container = options.container ? "container" : configData.structure.container;
+_config2.default.updateConfigFile(configData);
 
 _TemplateFactory2.default.createTemplateFor(options);

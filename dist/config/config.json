@@ -1,7 +1,5 @@
 {
-  "filesType": {
-    "js": "js",
-    "html": "html",
-    "style": "scss"
+  "structure": {
+    "container": "no-container"
   }
 }
