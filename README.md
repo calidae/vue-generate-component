@@ -5,8 +5,8 @@ Developed upon the work of [vue-generate-component](https://github.com/NetanelBa
 CLI util for easy generate Vue js component
 
 ## Installation
-```js
-npm install -g vue-generate-component
+```bash
+npm install -g @calidae/vue-generate-component
 ```
 
 ## Usage
