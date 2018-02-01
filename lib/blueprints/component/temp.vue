@@ -1,5 +1,5 @@
 <template>
-  <div class="c-{{name | dasherize }}">
+  <div class="c{{name | dasherize }}">
 
   </div>
 </template>
