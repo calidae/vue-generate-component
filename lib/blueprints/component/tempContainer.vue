@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <{{name}} />
-  </div>
+  <{{name}} />
 </template>
 
 <script>
@@ -12,7 +10,7 @@ export default {
   components: {
     {{name}}
   },
-  data() {
+  data () {
     return {}
   }
 }
