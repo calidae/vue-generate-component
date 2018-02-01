@@ -1,5 +1,5 @@
 <template>
-  <div class="c-{{name | camelCaseOnly }}">
+  <div class="c-{{name | dasherize }}">
 
   </div>
 </template>
