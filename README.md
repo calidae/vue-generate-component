@@ -62,7 +62,7 @@ describe('Footer.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('renders an snapshot', () => {
+  it('renders a snapshot', () => {
     const wrapper = shallow(Footer)
     expect(wrapper.html()).toMatchSnapshot('default')
   })
@@ -123,7 +123,7 @@ describe('FooterContainer.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('renders an snapshot', () => {
+  it('renders a snapshot', () => {
     const wrapper = shallow(FooterContainer)
     expect(wrapper.html()).toMatchSnapshot('default')
   })
