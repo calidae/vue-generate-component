@@ -34,7 +34,7 @@ export default Footer
 **Footer.vue**
 ```vue
 <template>
-  <div class="c-footer">
+  <div class="Footer">
 
   </div>
 </template>
@@ -72,7 +72,7 @@ describe('Footer.vue', () => {
 
 ### Creating a container component
 If you want to replicate the structure outlined above but adding a Container
-component, just add the `container` flag:
+component, add the `container` flag:
 
 ```bash
 vgc Footer --container
@@ -129,3 +129,18 @@ describe('FooterContainer.vue', () => {
   })
 })
 ```
+
+
+## Disclaimer
+
+This project tries to solve tedious copy&paste operations from **our** daily workflow.
+Please notice that the generated files will require some external libraries such as
+Vue or @vue/test-utils. Make sure these libraries are available in your project.
+
+
+## TODO
+
+1. Add tests(!)
+2. Add ability to define folder path (now it only creates a folder in the current directory)
+3. ...
+
