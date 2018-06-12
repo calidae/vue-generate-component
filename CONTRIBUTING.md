@@ -1,4 +1,4 @@
-Please feel free to submit issues and PRs to extend funcionality!
+Feel free to submit issues and PRs to extend functionality!
 
 1. Fork the repository.
 2. Make the desired changes.
