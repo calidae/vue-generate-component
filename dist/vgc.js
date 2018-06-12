@@ -17,10 +17,6 @@ var _TemplateFactory = require('./TemplateFactory');
 
 var _TemplateFactory2 = _interopRequireDefault(_TemplateFactory);
 
-var _fs = require('fs');
-
-var _fs2 = _interopRequireDefault(_fs);
-
 var _config = require('./config/config');
 
 var _config2 = _interopRequireDefault(_config);

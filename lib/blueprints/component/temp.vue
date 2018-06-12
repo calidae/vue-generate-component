@@ -1,6 +1,6 @@
 <template>
-  <div class="c{{name | dasherize }}">
-
+  <div class="{{name | camelCase }}">
+    
   </div>
 </template>
 
@@ -12,3 +12,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

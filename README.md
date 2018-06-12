@@ -2,18 +2,20 @@
 
 Developed upon the work of [vue-generate-component](https://github.com/NetanelBasal/vue-generate-component).
 
-CLI util for easy generate Vue js component
+CLI util for easy generate Vue component structure.
 
 ## Installation
 ```bash
 npm install -g @calidae/vue-generate-component
 ```
 
-## Usage
+If you want to try it out without polluting your global npm, you can use [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b):
 
 ```bash
-vgc --help
+npx @calidae/vue-generate-component [ARGUMENTS]
 ```
+
+## Usage
 
 ### Create new component
 ```bash
@@ -35,26 +37,30 @@ export default Footer
 ```vue
 <template>
   <div class="Footer">
-
+    
   </div>
 </template>
 
 <script>
 export default {
   name: 'Footer',
-  data() {
+  data () {
     return {}
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
+
 ```
 
 
 **Footer.spec.js**
-```javascript
-import Vue from 'vue'
+```js
 import Footer from './index.js'
-import { mount, shallow } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 
 describe('Footer.vue', () => {
   it('is a component', () => {
@@ -62,15 +68,20 @@ describe('Footer.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
+  it('renders main node', () => {
+    const wrapper = mount(Footer)
+    expect(wrapper.classes()).toContain('Footer')
+  })
+
   it('renders a snapshot', () => {
-    const wrapper = shallow(Footer)
+    const wrapper = mount(Footer)
     expect(wrapper.html()).toMatchSnapshot('default')
   })
 })
 ```
 
 
-### Creating a container component
+### Creating a folder with Container Component
 If you want to replicate the structure outlined above but adding a Container
 component, add the `container` flag:
 
@@ -78,7 +89,7 @@ component, add the `container` flag:
 vgc Footer --container
 ```
 
-Will modify the `index.js` file and create a new container component and test file:
+In addition to previously outlined files, this command will modify `index.js`:
 
 **index.js**
 ```js
@@ -87,12 +98,12 @@ import FooterContainer from './FooterContainer'
 export default FooterContainer
 ```
 
+and create 2 new files:
+
 **FooterContainer.vue**
 ```vue
 <template>
-  <div>
-    <Footer />
-  </div>
+  <Footer />
 </template>
 
 <script>
@@ -103,7 +114,7 @@ export default {
   components: {
     Footer
   },
-  data() {
+  data () {
     return {}
   }
 }
@@ -113,9 +124,8 @@ export default {
 
 **FooterContainer.spec.js**
 ```javascript
-import Vue from 'vue'
 import FooterContainer from './FooterContainer'
-import { mount, shallow } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 
 describe('FooterContainer.vue', () => {
   it('is a component', () => {
@@ -124,7 +134,7 @@ describe('FooterContainer.vue', () => {
   })
 
   it('renders a snapshot', () => {
-    const wrapper = shallow(FooterContainer)
+    const wrapper = mount(FooterContainer)
     expect(wrapper.html()).toMatchSnapshot('default')
   })
 })

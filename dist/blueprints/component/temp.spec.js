@@ -1,6 +1,5 @@
-import Vue from 'vue'
 import {{name | camelCase}} from './index.js'
-import { mount, shallow } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 
 describe('{{name | camelCase}}.vue', () => {
   it('is a component', () => {
@@ -8,8 +7,13 @@ describe('{{name | camelCase}}.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('renders an snapshot', () => {
-    const wrapper = shallow({{name | camelCase}})
+  it('renders main node', () => {
+    const wrapper = mount({{name | camelCase}})
+    expect(wrapper.classes()).toContain('{{name | camelCase }}')
+  })
+
+  it('renders a snapshot', () => {
+    const wrapper = mount({{name | camelCase}})
     expect(wrapper.html()).toMatchSnapshot('default')
   })
 })

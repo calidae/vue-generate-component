@@ -1,14 +1,18 @@
 <template>
-  <div class="c-{{name | camelCaseOnly }}">
-
+  <div class="{{name | camelCase }}">
+    
   </div>
 </template>
 
 <script>
 export default {
   name: '{{name}}',
-  data() {
+  data () {
     return {}
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
