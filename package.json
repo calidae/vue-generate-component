@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rm -rf dist && npm run gulp -- build",
     "gulp": "gulp",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "files": [
     "dist"
