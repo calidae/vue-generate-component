@@ -21,7 +21,7 @@ npx @calidae/vue-generate-component [ARGUMENTS]
 ```bash
 vgc Footer
 ```
-Will generate a folder called `Footer` in *your current directory* with three files :
+Will generate a folder called `Footer` in *your current directory* with three files:
 
 
 **index.js**
@@ -145,7 +145,7 @@ describe('FooterContainer.vue', () => {
 
 This project tries to solve tedious copy&paste operations from **our** daily workflow.
 Please notice that the generated files will require some external libraries such as
-Vue or @vue/test-utils. Make sure these libraries are available in your project.
+Vue, @vue/test-utils or Sass loader configuration. Make sure these libraries are available in your project.
 
 
 ## TODO
