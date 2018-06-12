@@ -152,5 +152,6 @@ Vue, @vue/test-utils or Sass loader configuration. Make sure these libraries are
 
 1. Add tests(!)
 2. Add ability to define folder path (now it only creates a folder in the current directory)
+3. swig@1.4.2 is no longer maintained
 3. ...
 
