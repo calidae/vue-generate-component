@@ -72,11 +72,6 @@ describe('Footer.vue', () => {
     const wrapper = mount(Footer)
     expect(wrapper.classes()).toContain('Footer')
   })
-
-  it('renders a snapshot', () => {
-    const wrapper = mount(Footer)
-    expect(wrapper.html()).toMatchSnapshot('default')
-  })
 })
 ```
 
@@ -131,11 +126,6 @@ describe('FooterContainer.vue', () => {
   it('is a component', () => {
     const wrapper = mount(FooterContainer)
     expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
-  it('renders a snapshot', () => {
-    const wrapper = mount(FooterContainer)
-    expect(wrapper.html()).toMatchSnapshot('default')
   })
 })
 ```
