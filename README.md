@@ -21,23 +21,13 @@ npx @calidae/vue-generate-component [ARGUMENTS]
 ```bash
 vgc Footer
 ```
-Will generate a folder called `Footer` in *your current directory* with three files:
-
-
-**index.js**
-```js
-import Footer from './Footer'
-
-export default Footer
-```
-
-
+Will generate a folder called `Footer` in *your current directory* vue component file:
 
 **Footer.vue**
 ```vue
 <template>
-  <div class="Footer">
-    
+  <div class="footer">
+    Footer component
   </div>
 </template>
 
@@ -50,12 +40,32 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style scoped></style>
 
 ```
 
+### Creating a index.js to simplify the import statements
+If you want to create a index.js to simplify the import statements simply add the `--index` flag or use the alias `-i`
+
+```bash
+vgc Footer --index
+vgc Footer -i
+```
+
+**index.js**
+```js
+import Footer from './Footer'
+
+export default Footer
+```
+
+### Creating a boilerplate test file
+If you want to create a **.spec.js test file as a boilerplate where start wrtiting your own tests simply add the `--test` flag or use the alias `-t`
+
+```bash
+vgc Footer --test
+vgc Footer -t
+```
 
 **Footer.spec.js**
 ```js
@@ -63,73 +73,12 @@ import Footer from './index.js'
 import { mount } from '@vue/test-utils'
 
 describe('Footer.vue', () => {
-  it('is a component', () => {
-    const wrapper = mount(Footer)
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('renders main node', () => {
     const wrapper = mount(Footer)
     expect(wrapper.classes()).toContain('Footer')
   })
 })
 ```
-
-
-### Creating a folder with Container Component
-If you want to replicate the structure outlined above but adding a Container
-component, add the `container` flag:
-
-```bash
-vgc Footer --container
-```
-
-In addition to previously outlined files, this command will modify `index.js`:
-
-**index.js**
-```js
-import FooterContainer from './FooterContainer'
-
-export default FooterContainer
-```
-
-and create 2 new files:
-
-**FooterContainer.vue**
-```vue
-<template>
-  <Footer />
-</template>
-
-<script>
-import Footer from './Footer'
-
-export default {
-  name: 'FooterContainer',
-  components: {
-    Footer
-  },
-  data () {
-    return {}
-  }
-}
-</script>
-```
-
-
-**FooterContainer.spec.js**
-```javascript
-import FooterContainer from './FooterContainer'
-import { mount } from '@vue/test-utils'
-
-describe('FooterContainer.vue', () => {
-  it('is a component', () => {
-    const wrapper = mount(FooterContainer)
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-})
-```
-
 
 ## Disclaimer
 

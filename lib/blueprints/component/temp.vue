@@ -1,7 +1,5 @@
 <template>
-  <div class="{{name | camelCase }}">
-    
-  </div>
+  <div class="{{name | kebabCase }}">{{ name }} component</div>
 </template>
 
 <script>
@@ -13,6 +11,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style scoped></style>
